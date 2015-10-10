@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RIM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position:   absolute;
+            top:        0;
+            right:      0;
+            min-width:  100%;
+            min-height: 100%;
+            font-size:  100px;
+            text-align: right;
+            filter:     alpha(opacity=0);
+            opacity:    0;
+            outline:    none;
+            background: white;
+            cursor:     inherit;
+            display:    block;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    <img src="img/footer-default.png">
+                </a>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li>
+                <a href="upload.html">Upload Sheet</a>
+            </li>
+            <li>
+                <a href="inspectionSheet.html">Inspection Sheet</a>
+            </li>
+            <li>
+                <a href="inspections.html">Inspections</a>
+            </li>
+            <li>
+                <a href="inventory.html">Inventory</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span
+                class="glyphicon glyphicon-menu-hamburger"></span></a>
+
+        <div class="container-fluid widget-container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="features-list">
+                            <div data-100-bottom-top="transform: translateX(-200px); opacity: 0" data-center-top="transform: translateX(0px); opacity: 1">
+                                <i class="material-icons">directions_car</i>
+                                <h4><b id="assets">Assets</b></h4>
+                            </div>
+                            <div data-100-bottom-top="transform: translateY(200px); opacity: 0" data-center-top="transform: translateY(0px); opacity: 1">
+                                <i class="material-icons">memory</i>
+                                <h4><b id="terminals">Remote Terminals</b></h4>
+                            </div>
+                            <div data-100-bottom-top="transform: translateX(200px); opacity: 0" data-center-top="transform: translateX(0px); opacity: 1">
+                                <i class="material-icons">view_comfy</i>
+                                <h4><b id="groups">Asset Groups</b></h4>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+                        <div id="container-pie"></div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="thumbnail">
+                        <div id="container-combination-chart" style=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="thumbnail">
+                        <div id="container-combined" style=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Terminal Inspections</div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>IMEI</th>
+                                    <th>ASSET</th>
+                                    <th>LOCATION</th>
+                                    <th>START DATE</th>
+                                    <th>END DATE</th>
+                                    <th>AGENDA</th>
+                                    <th>INSPECTION REPORT</th>
+                                    <th>COMMENTS</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <nav class="pages">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Other plugins -->
+<script src="js/highcharts/js/highcharts.js"></script>
+<script src="js/highcharts/js/highcharts-more.js"></script>
+<script src="js/highcharts/js/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/modules/funnel.js"></script>
+<script src="js/black-theme.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    /**
+     * Adding necessary listeners
+     */
+    $(document).ready(function () {
+        var me                             = this;
+        var terminal                       = getParameterByName('customer');
+
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+
+        $('#container-combination-chart').highcharts({
+            title : {
+                text: 'Statistics'
+            },
+            xAxis : {
+                categories: ['Jan', 'Feb', 'March', 'Apr', 'May']
+            },
+            labels: {
+                items: [{
+                    html : 'Total Statistics',
+                    style: {
+                        left : '50px',
+                        top  : '18px',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                    }
+                }]
+            },
+            series: [{
+                type: 'column',
+                name: 'Failures',
+                data: [3, 2, 1, 3, 5]
+            }, {
+                type: 'column',
+                name: 'Inspections',
+                data: [2, 3, 5, 4, 8]
+            }, {
+                type: 'column',
+                name: 'Compaints',
+                data: [4, 3, 3, 3, 2]
+            }, {
+                type  : 'spline',
+                name  : 'Average',
+                data  : [3, 2.67, 3, 6.33, 3.33],
+                marker: {
+                    lineWidth: 2,
+                    lineColor: Highcharts.getOptions().colors[3],
+                    fillColor: 'white'
+                }
+            }, {
+                type        : 'pie',
+                name        : 'Total',
+                data        : [{
+                    name : 'Failures',
+                    y    : 13,
+                    color: Highcharts.getOptions().colors[0] // Jane's color
+                }, {
+                    name : 'Inspections',
+                    y    : 23,
+                    color: Highcharts.getOptions().colors[1] // John's color
+                }, {
+                    name : 'Complaints',
+                    y    : 19,
+                    color: Highcharts.getOptions().colors[2] // Joe's color
+                }],
+                center      : [100, 80],
+                size        : 100,
+                showInLegend: false,
+                dataLabels  : {
+                    enabled: false
+                }
+            }]
+        });
+        $('#container-pie').highcharts({
+            chart      : {
+                plotBackgroundColor: null,
+                plotBorderWidth    : null,
+                plotShadow         : false,
+                type               : 'pie'
+            },
+            title      : {
+                text: 'Issues Encountered'
+            },
+            tooltip    : {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor          : 'pointer',
+                    dataLabels      : {
+                        enabled: false
+                    },
+                    showInLegend    : true
+                }
+            },
+            series     : [{
+                name        : "Issue",
+                colorByPoint: true,
+                data        : [{
+                    name: "Malfunction",
+                    y   : 56.33
+                }, {
+                    name    : "Powerloss",
+                    y       : 24.03,
+                    sliced  : true,
+                    selected: true
+                }, {
+                    name: "Burned Device",
+                    y   : 10.38
+                }, {
+                    name: "Short Circuits",
+                    y   : 4.77
+                }, {
+                    name: "Physical Damage ",
+                    y   : 0.91
+                }, {
+                    name: "Other",
+                    y   : 0.2
+                }]
+            }]
+        });
+
+        /**
+         * In order to synchronize tooltips and crosshairs, override the
+         * built-in events with handlers defined on the parent element.
+         */
+        $('#container-combined').bind('mousemove touchmove', function (e) {
+            var chart,
+                point,
+                i;
+
+            for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+                chart = Highcharts.charts[i];
+                e     = chart.pointer.normalize(e); // Find coordinates within the chart
+                point = chart.series[0].searchPoint(e, true); // Get the hovered point
+
+                if (point) {
+                    point.onMouseOver(); // Show the hover marker
+                    chart.tooltip.refresh(point); // Show the tooltip
+                    chart.xAxis[0].drawCrosshair(e, point); // Show the crosshair
+                }
+            }
+        });
+        /**
+         * Override the reset function, we don't need to hide the tooltips and crosshairs.
+         */
+        Highcharts.Pointer.prototype.reset = function () {
+            return undefined;
+        };
+
+        /**
+         * Synchronize zooming through the setExtremes event handler.
+         */
+        function syncExtremes(e) {
+            var thisChart = this.chart;
+
+            Highcharts.each(Highcharts.charts, function (chart) {
+                if (chart !== thisChart) {
+                    if (chart.xAxis[0].setExtremes) { // It is null while updating
+                        chart.xAxis[0].setExtremes(e.min, e.max);
+                    }
+                }
+            });
+        }
+
+        // Get the data. The contents of the data file can be viewed at
+        // https://github.com/highslide-software/highcharts.com/blob/master/samples/data/activity.json
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=activity.json&callback=?', function (activity) {
+            activity.datasets[0].name = 'Inspections';
+            activity.datasets[2].name = 'Failures';
+            activity.datasets[1].name = 'Complaints';
+            activity.datasets[0].unit = activity.datasets[1].unit = activity.datasets[2].unit = '';
+            $.each(activity.datasets, function (i, dataset) {
+                // Add X values
+                dataset.data = Highcharts.map(dataset.data, function (val, i) {
+                    return [activity.xData[i], val];
+                });
+
+                $('<div class="chart">')
+                        .appendTo('#container-combined')
+                        .highcharts({
+                            chart  : {
+                                marginLeft   : 40, // Keep all charts left aligned
+                                spacingTop   : 20,
+                                spacingBottom: 20
+                                // zoomType: 'x',
+                                // pinchType: null // Disable zoom on touch devices
+                            },
+                            title  : {
+                                text  : dataset.name,
+                                align : 'left',
+                                margin: 0,
+                                x     : 30
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            legend : {
+                                enabled: false
+                            },
+                            xAxis  : {
+                                crosshair: true,
+                                events   : {
+                                    setExtremes: syncExtremes
+                                },
+                                labels   : {
+                                    format: '{value}'
+                                }
+                            },
+                            yAxis  : {
+                                title: {
+                                    text: null
+                                }
+                            },
+                            tooltip: {
+                                positioner     : function () {
+                                    return {
+                                        x: this.chart.chartWidth - this.label.width, // right aligned
+                                        y: -1 // align to title
+                                    };
+                                },
+                                borderWidth    : 0,
+                                backgroundColor: 'none',
+                                pointFormat    : '{point.y}',
+                                headerFormat   : '',
+                                shadow         : false,
+                                style          : {
+                                    fontSize: '18px'
+                                },
+                                valueDecimals  : dataset.valueDecimals
+                            },
+                            series : [{
+                                data       : dataset.data,
+                                name       : dataset.name,
+                                type       : dataset.type,
+                                color      : Highcharts.getOptions().colors[i],
+                                fillOpacity: 0.3,
+                                tooltip    : {
+                                    valueSuffix: ' ' + dataset.unit
+                                }
+                            }]
+                        });
+            });
+        });
+
+        this.addPageListener = function () {
+            $('.pagination li').on('click', function () {
+                page = Number((this).innerText);
+                if (page != "«" || page != "»") {
+                    $.ajax({
+                        url     : '../services/fetch.php',
+                        type    : 'GET',
+                        dataType: "json",
+                        data    : {
+                            page    : page,
+                            purpose : 'TerminalInspections',
+                            terminal: 'BLAH'
+                        },
+                        success : function (result) {
+                            $('tbody').empty();
+                            $.each(result, function (k, v) {
+                                $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                            });
+                        }
+                    });
+                }
+            });
+            $.ajax({
+                url     : '../services/fetch.php',
+                type    : 'GET',
+                dataType: "json",
+                data    : {
+                    page    : 1,
+                    purpose : 'TerminalInspections',
+                    terminal: terminal
+                },
+                success : function (result) {
+                    $('tbody').empty();
+                    $.each(result, function (k, v) {
+                        $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                    });
+                }
+            });
+        };
+
+        $.ajax({
+            url     : '../services/fetch.php',
+            type    : 'GET',
+            async   : true,
+            dataType: "json",
+            data    : {
+                purpose : 'TerminalInspectionsCount',
+                terminal: terminal
+            },
+            success : function (result) {
+                console.log(result);
+                $('.pagination').empty();
+                var count = Math.ceil(result[0] / 10);
+                for (var i = 1; i <= count; i++) {
+                    $('.pagination').append(' <li><a href="#">' + i + '</a></li>');
+                }
+                me.addPageListener();
+            }
+        });
+        /**
+         * Fetch terminal inspection Information
+         */
+        $.ajax({
+            url     : '../services/fetch.php',
+            type    : 'GET',
+            dataType: "json",
+            data    : {
+                page    : 1,
+                purpose : 'TerminalInspections',
+                terminal: terminal
+            },
+            success : function (result) {
+                console.log(result);
+                $('tbody').empty();
+                $.each(result, function (k, v) {
+                    $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                });
+            }
+        });
+        /**
+         * Fetch Roam Information
+         */
+        $.ajax({
+            url     : 'http://localhost:81/action/service/mobile/customerInfo',
+            dataType: 'jsonp',
+            data    : {
+                domainObjectName: terminal
+            },
+            success : function (result) {
+                $('#assets').prepend(result.totalAssets+' ');
+                $('#groups').prepend(result.totalAssetGroups+' ');
+                $('#terminals').prepend(result.totalTerminals+' ');
+            }
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

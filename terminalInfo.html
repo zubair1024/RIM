@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RIM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position:   absolute;
+            top:        0;
+            right:      0;
+            min-width:  100%;
+            min-height: 100%;
+            font-size:  100px;
+            text-align: right;
+            filter:     alpha(opacity=0);
+            opacity:    0;
+            outline:    none;
+            background: white;
+            cursor:     inherit;
+            display:    block;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    <img src="img/footer-default.png">
+                </a>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li>
+                <a href="upload.html">Upload Sheet</a>
+            </li>
+            <li>
+                <a href="inspectionSheet.html">Inspection Sheet</a>
+            </li>
+            <li>
+                <a href="inspections.html">Inspections</a>
+            </li>
+            <li>
+                <a href="inventory.html">Inventory</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span
+                class="glyphicon glyphicon-menu-hamburger"></span></a>
+
+        <div class="container-fluid widget-container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+                        <div id="container-pie"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+                        <div id="container-polar"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+                        <div id="container-pyramid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <h4><i class="material-icons" style="vertical-align: text-bottom">memory</i>Terminal Information</h4>
+                        <div class="caption">
+                            <ul class="terminal-info"></ul>
+                            <a href="#" class="btn btn-default btn-xs" role="button" data-toggle="modal" data-target="#myModal">More Info</a>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <img src="img/lowpassfilter.png" height="300" width="600">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="thumbnail">
+                        <div id="container" style=""></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="panel panel-default">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Terminal Inspections</div>
+
+                            <!-- Table -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>IMEI</th>
+                                        <th>ASSET</th>
+                                        <th>LOCATION</th>
+                                        <th>START DATE</th>
+                                        <th>END DATE</th>
+                                        <th>AGENDA</th>
+                                        <th>INSPECTION REPORT</th>
+                                        <th>COMMENTS</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <nav class="pages">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Other plugins -->
+<script src="js/highcharts/js/highcharts.js"></script>
+<script src="js/highcharts/js/highcharts-more.js"></script>
+<script src="js/highcharts/js/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/modules/funnel.js"></script>
+<script src="js/black-theme.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    /**
+     * Adding necessary listeners
+     */
+    $(document).ready(function () {
+        var me       = this;
+        var terminal = getParameterByName('terminal');
+
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+
+        $('#container').highcharts({
+            chart   : {
+                type: 'spline'
+            },
+            title   : {
+                text: 'Remote Terminal Statistics'
+            },
+            subtitle: {
+                text: 'Irregularites with Terminal'
+            },
+            xAxis   : {
+                type                : 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%e. %b',
+                    year : '%b'
+                },
+                title               : {
+                    text: 'Date'
+                }
+            },
+            yAxis   : {
+                title: {
+                    text: 'Count'
+                },
+                min  : 0
+            },
+            tooltip : {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat : '{point.x:%e. %b}: {point.y:.2f}'
+            },
+
+            plotOptions: {
+                spline: {
+                    marker: {
+                        enabled: true
+                    }
+                }
+            },
+
+            series: [{
+                name: "Inspections",
+                // Define the data points. All series have a dummy year
+                // of 1970/71 in order to be compared on the same x axis. Note
+                // that in JavaScript, months start at 0 for January, 1 for February etc.
+                data: [
+                    [Date.UTC(1970, 9, 21), 0],
+                    [Date.UTC(1970, 10, 4), 0.28],
+                    [Date.UTC(1970, 10, 9), 0.25],
+                    [Date.UTC(1970, 10, 27), 0.2],
+                    [Date.UTC(1970, 11, 2), 0.28],
+                    [Date.UTC(1970, 11, 26), 0.28],
+                    [Date.UTC(1970, 11, 29), 0.47],
+                    [Date.UTC(1971, 0, 11), 0.79],
+                    [Date.UTC(1971, 0, 26), 0.72],
+                    [Date.UTC(1971, 1, 3), 1.02],
+                    [Date.UTC(1971, 1, 11), 1.12],
+                    [Date.UTC(1971, 1, 25), 1.2],
+                    [Date.UTC(1971, 2, 11), 1.18],
+                    [Date.UTC(1971, 3, 11), 1.19],
+                    [Date.UTC(1971, 4, 1), 1.85],
+                    [Date.UTC(1971, 4, 5), 2.22],
+                    [Date.UTC(1971, 4, 19), 1.15],
+                    [Date.UTC(1971, 5, 3), 0]
+                ]
+            }, {
+                name: "Complaints",
+                data: [
+                    [Date.UTC(1970, 9, 29), 0],
+                    [Date.UTC(1970, 10, 9), 0.4],
+                    [Date.UTC(1970, 11, 1), 0.25],
+                    [Date.UTC(1971, 0, 1), 1.66],
+                    [Date.UTC(1971, 0, 10), 1.8],
+                    [Date.UTC(1971, 1, 19), 1.76],
+                    [Date.UTC(1971, 2, 25), 2.62],
+                    [Date.UTC(1971, 3, 19), 2.41],
+                    [Date.UTC(1971, 3, 30), 2.05],
+                    [Date.UTC(1971, 4, 14), 1.7],
+                    [Date.UTC(1971, 4, 24), 1.1],
+                    [Date.UTC(1971, 5, 10), 0]
+                ]
+            }, {
+                name: "Failures",
+                data: [
+                    [Date.UTC(1970, 10, 25), 0],
+                    [Date.UTC(1970, 11, 6), 0.25],
+                    [Date.UTC(1970, 11, 20), 1.41],
+                    [Date.UTC(1970, 11, 25), 1.64],
+                    [Date.UTC(1971, 0, 4), 1.6],
+                    [Date.UTC(1971, 0, 17), 2.55],
+                    [Date.UTC(1971, 0, 24), 2.62],
+                    [Date.UTC(1971, 1, 4), 2.5],
+                    [Date.UTC(1971, 1, 14), 2.42],
+                    [Date.UTC(1971, 2, 6), 2.74],
+                    [Date.UTC(1971, 2, 14), 2.62],
+                    [Date.UTC(1971, 2, 24), 2.6],
+                    [Date.UTC(1971, 3, 2), 2.81],
+                    [Date.UTC(1971, 3, 12), 2.63],
+                    [Date.UTC(1971, 3, 28), 2.77],
+                    [Date.UTC(1971, 4, 5), 2.68],
+                    [Date.UTC(1971, 4, 10), 2.56],
+                    [Date.UTC(1971, 4, 15), 2.39],
+                    [Date.UTC(1971, 4, 20), 2.3],
+                    [Date.UTC(1971, 5, 5), 2],
+                    [Date.UTC(1971, 5, 10), 1.85],
+                    [Date.UTC(1971, 5, 15), 1.49],
+                    [Date.UTC(1971, 5, 23), 1.08]
+                ]
+            }]
+        });
+        $('#container-pie').highcharts({
+            chart      : {
+                plotBackgroundColor: null,
+                plotBorderWidth    : null,
+                plotShadow         : false,
+                type               : 'pie'
+            },
+            title      : {
+                text: 'Issues Encountered'
+            },
+            tooltip    : {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor          : 'pointer',
+                    dataLabels      : {
+                        enabled: false
+                    },
+                    showInLegend    : true
+                }
+            },
+            series     : [{
+                name        : "Issue",
+                colorByPoint: true,
+                data        : [{
+                    name: "Malfunction",
+                    y   : 56.33
+                }, {
+                    name    : "Powerloss",
+                    y       : 24.03,
+                    sliced  : true,
+                    selected: true
+                }, {
+                    name: "Burned Device",
+                    y   : 10.38
+                }, {
+                    name: "Short Circuits",
+                    y   : 4.77
+                }, {
+                    name: "Physical Damage ",
+                    y   : 0.91
+                }, {
+                    name: "Other",
+                    y   : 0.2
+                }]
+            }]
+        });
+
+        $('#container-polar').highcharts({
+
+            chart: {
+                polar: true
+            },
+
+            title: {
+                text: 'Random Chart'
+            },
+
+            pane: {
+                startAngle: 0,
+                endAngle  : 360
+            },
+
+            xAxis: {
+                tickInterval: 45,
+                min         : 0,
+                max         : 360,
+                labels      : {
+                    formatter: function () {
+                        return this.value + '°';
+                    }
+                }
+            },
+
+            yAxis: {
+                min: 0
+            },
+
+            plotOptions: {
+                series: {
+                    pointStart   : 0,
+                    pointInterval: 45
+                },
+                column: {
+                    pointPadding: 0,
+                    groupPadding: 0
+                }
+            },
+
+            series: [{
+                type          : 'column',
+                name          : 'Column',
+                data          : [8, 7, 6, 5, 4, 3, 2, 1],
+                pointPlacement: 'between'
+            }, {
+                type: 'line',
+                name: 'Line',
+                data: [1, 2, 3, 4, 5, 6, 7, 8]
+            }, {
+                type: 'area',
+                name: 'Area',
+                data: [1, 8, 2, 7, 3, 6, 4, 5]
+            }]
+        });
+
+
+
+        this.addPageListener = function () {
+            $('.pagination li').on('click', function () {
+                page = Number((this).innerText);
+                if (page != "«" || page != "»") {
+                    $.ajax({
+                        url     : '../services/fetch.php',
+                        type    : 'GET',
+                        dataType: "json",
+                        data    : {
+                            page    : page,
+                            purpose : 'TerminalInspections',
+                            terminal: 'BLAH'
+                        },
+                        success : function (result) {
+                            $('tbody').empty();
+                            $.each(result, function (k, v) {
+                                $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                            });
+                        }
+                    });
+                }
+            });
+            $.ajax({
+                url     : '../services/fetch.php',
+                type    : 'GET',
+                dataType: "json",
+                data    : {
+                    page   : 1,
+                    purpose : 'TerminalInspections',
+                    terminal: terminal
+                },
+                success : function (result) {
+                    $('tbody').empty();
+                    $.each(result, function (k, v) {
+                        $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                    });
+                }
+            });
+        };
+
+        $.ajax({
+            url     : '../services/fetch.php',
+            type    : 'GET',
+            async   : true,
+            dataType: "json",
+            data    : {
+                purpose : 'TerminalInspectionsCount',
+                terminal: terminal
+            },
+            success : function (result) {
+                console.log(result);
+                $('.pagination').empty();
+                var count = Math.ceil(result[0] / 10);
+                for (var i = 1; i <= count; i++) {
+                    $('.pagination').append(' <li><a href="#">' + i + '</a></li>');
+                }
+                me.addPageListener();
+            }
+        });
+        /**
+         * Fetch terminal inspection Information
+         */
+        $.ajax({
+            url     : '../services/fetch.php',
+            type    : 'GET',
+            dataType: "json",
+            data    : {
+                page    : 1,
+                purpose : 'TerminalInspections',
+                terminal: terminal
+            },
+            success : function (result) {
+                console.log(result);
+                $('tbody').empty();
+                $.each(result, function (k, v) {
+                    $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                });
+            }
+        });
+        /**
+         * Fetch Roam Information
+         */
+        $.ajax({
+            url     : 'http://localhost:81/action/service/mobile/remoteTerminalInfo',
+            dataType: 'jsonp',
+            data    : {
+                domainObjectName: terminal
+            },
+            success : function (result) {
+                console.log(result.events);
+                var terminalInfoList = $('.terminal-info');
+                //details
+                terminalInfoList.append('<li><b>Asset</b> : ' + result.assetName + '</li><li><b>Asset Group:</b> ' + result.assetGroup + '</li><li><b>Customer : </b>' + result.customer + '</li><li><b>Activation Date:</b> ' + result.activationDate + '</li><li><b>Configuration: </b> ' + result.configName + '</li><li><b>SIM Number: </b> ' + result.sim + '</li><hr><b>Recent Events:</b><br>');
+                //events
+                $.each(result.events,function(id, v){
+                    terminalInfoList.append('<li>'+result.events[id]+'</li>')
+                });
+                //pyramid
+                if(result.hierarchy){
+                    var data = result.hierarchy.split('->'),
+                    totalSize = data.length * 1000,
+                    hierarchy = [];
+                    $.each(data, function(i,v){
+                        totalSize = totalSize-1000;
+                        hierarchy[i]=[data[i],(totalSize-1000)]
+                    });
+                    console.log(hierarchy);
+                    $('#container-pyramid').highcharts({
+                        chart      : {
+                            type       : 'pyramid',
+                            marginRight: 100
+                        },
+                        title      : {
+                            text: 'Hierarchy Pyramid',
+                            x   : -50
+                        },
+                        plotOptions: {
+                            series: {
+                                dataLabels: {
+                                    enabled      : true,
+                                    format       : '<b>{point.name}</b>',
+                                    color        : (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                                    softConnector: false
+                                }
+                            }
+                        },
+                        legend     : {
+                            enabled: true
+                        },
+                        series     : [{
+                            name: 'Domain',
+                            data: hierarchy
+                        }]
+                    });
+                }
+            }
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

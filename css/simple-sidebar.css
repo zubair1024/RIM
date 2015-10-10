@@ -1,0 +1,537 @@
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+#file-upload-button{
+    margin-bottom: 10px;
+}
+
+.img-thumbnail {
+    margin-top: 20px;
+    border-radius: 200px;
+}
+
+.panel-default {
+    margin-top: 20px;
+}
+
+/*FEATURE LIST*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: normal 14px/1.4 Arial, Helvetica, sans-serif;
+}
+
+.skrollr-desktop body {
+    height:100% !important;
+}
+
+#skrollr-body {
+    height:100%;
+    overflow:visible;
+    position:relative;
+}
+
+
+/*  Styles for this example */
+
+
+.dummy-content{
+    padding: 150px 0;
+    background: radial-gradient(white, #EEF6F9);
+    color: #3FA564;
+
+    font-size: 24px;
+    height: 100vh;
+    text-align: center;
+}
+
+.dummy-content h2{
+    font-weight: normal;
+}
+
+.features-list{
+    padding: 30px 0;
+    background-color: #fff;
+    color: #25373C;
+    font-size: 18px;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.features-list h2{
+    font-size: 42px;
+    margin-bottom: 80px;
+    font-weight: normal;
+}
+
+.features-list div{
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 45px;
+    box-shadow: 1px 1px 1px #ccc, 0 0 30px #eee inset;
+}
+
+.features-list div i{
+    font-size: 150px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.features-list div h4{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #425F67;
+    font-weight: normal;
+}
+
+
+@media (max-width: 900px){
+
+    .features-list div{
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+}
+
+
+.body-text{
+    padding: 30px 0;
+    background-color: #fff;
+    color: #25373C;
+    font-size: 18px;
+    min-height: 10vh;
+    text-align: center;
+}
+
+.body-text h2{
+    font-size: 42px;
+    font-weight: normal;
+    margin-bottom: 80px;
+}
+
+.body-text p{
+    width: 28%;
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    color: #45636B;
+}
+
+
+@media (max-width: 900px){
+
+    .body-text p{
+        width: 100%;
+    }
+
+}
+
+/*FEATURE LIST*/
+
+.pages {
+    margin:  auto;
+    width:   60%;
+    padding: 10px;
+}
+
+.nav-btn-active{
+    background-color: rgb(47, 47, 47);
+}
+
+/*page intro*/
+.parallax-image.skrollable-between {
+    display:block;
+}
+
+.no-skrollr .parallax-image-wrapper {
+    display:none !important;
+}
+
+.parallax-image-wrapper {
+    position:fixed;
+    left:0;
+    width:100%;
+    overflow:hidden;
+
+    height:80vh;
+    top:-80vh;
+}
+
+
+.parallax-image {
+    display:none;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+
+    height:100vh;
+    top:0;
+}
+
+
+.parallax-image.skrollable-between {
+    display:block;
+}
+
+.no-skrollr .parallax-image-wrapper {
+    display:none !important;
+}
+
+.gap {
+    background:transparent center no-repeat;
+    background-size:cover;
+    height:80vh;
+}
+
+.skrollr .gap {
+    background:transparent !important;
+}
+
+#page-intro h1{
+    text-align: center;
+    color: #fff;
+    font: normal 60px 'Droid Serif', sans-serif;
+    padding-top: 24vh;
+}
+
+@media (max-width: 800px) {
+    #page-intro h1 {
+        font-size: 42px;
+        padding-top: 15vh;
+    }
+}
+
+#page-intro .btn{
+    color: #fff !important;
+    display: block;
+    margin: 40px auto;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 18px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dummy-content{
+    padding: 150px 0;
+    background-color: #fff;
+    color: #221f51;
+    font-size: 24px;
+    min-height: 800px;
+    text-align: center;
+}
+
+.dummy-content h2{
+    font-weight: normal;
+    color: #777;
+}
+/*page intro*/
+
+/* footer */
+footer{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    width: 100%;
+    font: bold 16px sans-serif;
+    text-align: left;
+    padding: 50px 60px 55px;
+    overflow: hidden;
+}
+
+/* Footer left */
+
+footer .footer-left{
+    float: left;
+}
+
+footer h3{
+    color:  #5383d3;
+    font: normal 36px 'Cookie', cursive;
+    margin: 0;
+}
+
+footer .footer-links{
+    color: #95A4A9;
+    margin: 22px 0 14px;
+    padding: 0;
+}
+
+footer .footer-links a{
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+}
+
+footer .footer-company-name{
+    color:  #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+
+/* Footer right */
+
+footer .footer-right{
+    float: right;
+    width: 100%;
+}
+
+/* The search form */
+
+footer form{
+    position: relative;
+}
+
+footer form input{
+    display: block;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    color: #32383A;
+    width: 100%;
+    padding: 18px 50px 18px 18px;
+    outline: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px #eee;
+}
+
+footer form input:focus{
+    border-color:#ccc;
+}
+
+/* Changing the placeholder color */
+
+footer form input::-webkit-input-placeholder {
+    color:  #5c666b;
+}
+
+footer form input::-moz-placeholder {
+    opacity: 1;
+    color:  #5c666b;
+}
+
+footer form input:-ms-input-placeholder{
+    color:  #5c666b;
+}
+
+/* The magnify glass icon */
+
+footer form i{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 16px;
+    right: 18px;
+
+    color: #d1d2d2;
+    font-size: 20px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1100px) {
+
+    footer .footer-left{
+        margin-bottom: 50px;
+    }
+
+    footer .footer-right{
+        float: left;
+        clear: left;
+    }
+
+}
+/* footer */
+
+/* about */
+.about-us{
+    padding: 150px 0;
+    background-color: #fff;
+    min-height: 120vh;
+    text-align: center;
+    color: #25373C;
+    font-size: 18px;
+}
+
+.about-us h2{
+    font-size: 42px;
+    margin-bottom: 80px;
+    font-weight: normal;
+}
+
+.about-us div{
+    text-align: center;
+    width: 25%;
+    margin: 30px 10px;
+    display: inline-block;
+}
+
+
+.about-us div img{
+    border-radius: 50%;
+    width: 60%;
+}
+
+.about-us a.attribution{
+    display: block;
+    font-size: 13px;
+    text-decoration: none;
+    color: inherit;
+    width: 280px;
+    margin: 50px auto 10px;
+    opacity: 0.5;
+}
+
+
+@media (max-width: 800px){
+
+    .about-us div{
+        width: 45%;
+        margin: 20px 0;
+    }
+
+}
+/* about */
+
+.widget-container{
+    margin-top: 20px;
+}
+
+.terminal-info, .input-group{
+    padding: 10px;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RIM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <style type="text/css">
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    <img src="img/footer-default.png">
+                </a>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li>
+                <a href="upload.html">Upload Sheet</a>
+            </li>
+            <li>
+                <a href="inspectionSheet.html">Inspection Sheet</a>
+            </li>
+            <li class="nav-btn-active">
+                <a href="inspections.html">Inspections</a>
+            </li>
+            <li>
+                <a href="inventory.html">Inventory</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span
+                class="glyphicon glyphicon-menu-hamburger"></span></a>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Terminal <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Terminal</a></li>
+                                <li><a href="#">Asset</a></li>
+                                <li><a href="#">Location</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Start date</a></li>
+                                <li><a href="#">End date</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                        <input type="text" class="form-control" aria-label="...">
+                    </div><!-- /input-group -->
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+
+                        <div class="panel-heading">Current RIM Inventory</div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>IMEI</th>
+                                    <th>ASSET</th>
+                                    <th>LOCATION</th>
+                                    <th>START DATE</th>
+                                    <th>END DATE</th>
+                                    <th>AGENDA</th>
+                                    <th>INSPECTION REPORT</th>
+                                    <th>COMMENTS</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <nav class="pages">
+                        <ul class="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Other plugins -->
+<script src="js/parallax.min.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('.parallax-window').parallax({imageSrc: 'img/inventory.jpg'});
+    });
+    /**
+     * Adding necessary listeners
+     */
+    $(document).ready(function () {
+        var me = this;
+        this.addPageListener = function(){
+            $('.pagination li').on('click', function () {
+                page = Number((this).innerText);
+                if (page != "«" || page != "»") {
+                    $.ajax({
+                        url: '../services/fetch.php',
+                        type: 'GET',
+                        dataType: "json",
+                        data: {
+                            page: page,
+                            purpose: 'InspectionPage'
+                        },
+                        success: function (result) {
+                            $('tbody').empty();
+                            $.each(result, function (k, v) {
+                                $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                            });
+                        }
+                    });
+                }
+            });
+            $.ajax({
+                url: '../services/fetch.php',
+                type: 'GET',
+                dataType: "json",
+                data: {
+                    page: 1,
+                    purpose: 'InspectionPage'
+                },
+                success: function (result) {
+                    $('tbody').empty();
+                    $.each(result, function (k, v) {
+                        $('tbody').append('<tr><td>' + v.imei + '</td><td>' + v.asset + '</td><td>' + v.location + '</td><td>' + v.startDate + '</td><td>' + v.endDate + '</td><td>' + v.agenda + '</td><td>' + v.report + '</td><td>' + v.comments + '</td></tr>');
+                    });
+                }
+            });
+        };
+        $.ajax({
+            url: '../services/fetch.php',
+            type: 'GET',
+            async: true,
+            dataType: "json",
+            data: {
+                purpose: 'InspectionCount'
+            },
+            success: function (result) {
+                $('.pagination').empty();
+                var count = Math.ceil(result[0]/10);
+                for (var i = 1; i <= count; i++) {
+                    $('.pagination').append(' <li><a href="#">'+i+'</a></li>');
+                }
+                me.addPageListener();
+            }
+        });
+
+    });
+</script>
+
+</body>
+
+</html>

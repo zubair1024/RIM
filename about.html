@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RIM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+        .parallax-window {
+            min-height: 400px;
+            background: transparent;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    <img src="img/footer-default.png">
+                </a>
+            </li>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li>
+                <a href="upload.html">Upload Sheet</a>
+            </li>
+            <li>
+                <a href="inspectionSheet.html">Inspection Sheet</a>
+            </li>
+            <li>
+                <a href="inspections.html">Inspections</a>
+            </li>
+            <li>
+                <a href="inventory.html">Inventory</a>
+            </li>
+            <li class="nav-btn-active">
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <div id="page-content-wrapper">
+    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span
+            class="glyphicon glyphicon-menu-hamburger"></span></a>
+    <!-- Page Content -->
+     <div class="about-us">
+
+        <h2>About us</h2>
+
+       <div data-150-bottom-center="transform: rotate(-90deg); opacity: 0" data-150-center-center="transform: rotate(0); opacity: 1">
+           <img src="img/avatars/2.jpg" alt="avatar">
+            Jason Gasper
+        </div>
+
+        <div data-100-bottom-center="transform: rotate(-90deg); opacity: 0" data-100-center-center="transform: rotate(0); opacity: 1">
+            <img src="img/avatars/1.jpg" alt="avatar">
+            Zubair Ahmed
+        </div>
+
+        <div data-50-bottom-center="transform: rotate(-90deg); opacity: 0" data-50-center-center="transform: rotate(0); opacity: 1">
+            <img src="img/avatars/3.jpg" alt="avatar">
+            Vacant
+        </div>
+
+        <div data-150-bottom-center="transform: rotateY(-90deg); opacity: 0" data-150-center-center="transform: rotate(0); opacity: 1">
+            <img src="img/avatars/4.jpg" alt="avatar">
+            Vacant
+        </div>
+
+        <div data-100-bottom-center="transform: rotateY(-90deg); opacity: 0" data-100-center-center="transform: rotate(0); opacity: 1">
+            <img src="img/avatars/5.jpg" alt="avatar">
+            Vacant
+        </div>
+
+        <div data-50-bottom-center="transform: rotateY(-90deg); opacity: 0" data-50-center-center="transform: rotate(0); opacity: 1">
+            <img src="img/avatars/6.jpg" alt="avatar">
+            Vacant
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+           <img src="img/login-default.png">
+
+            <p class="footer-links">
+                <a href="index.html">HOME</a>
+                ·
+                <a href="upload.html">Upload Sheet</a>
+                ·
+                <a href="inspectionSheet.html">Inspection Sheet</a>
+                ·
+                <a href="inspections.html">Inspections</a>
+                ·
+                <a href="inventory.html">Inventory</a>
+                ·
+                <a href="about.html">About</a>
+            </p>
+
+            <p class="footer-company-name">Roamworks &copy; 2015</p>
+
+        </div>
+
+        <div class="footer-right"  data-bottom-top="max-width: 200px;" data-bottom-bottom="max-width: 600px;">
+
+            <form method="get" action="#">
+                <input placeholder="IMEI Search..."  />
+                <i class="material-icons">search</i>
+            </form>
+
+        </div>
+
+    </footer>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Other plugins -->
+<script src="js/parallax.min.js"></script>
+<script src="js/skrollr.min.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $('.parallax-window').parallax({imageSrc: 'img/inventory.jpg'});
+    });
+    skrollr.init();
+</script>
+</body>
+
+</html>
