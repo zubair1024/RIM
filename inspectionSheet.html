@@ -184,7 +184,7 @@
                 var dataString = 'imei=' + imei + '&asset=' + asset + '&location=' + location + '&startDate=' + startDate + '&endDate=' + endDate + '&agenda=' + agenda + '&report=' + report + '&comments=' + comments;
                 $.ajax({
                     type   : "POST",
-                    url    : "../services/upload.php",
+                    url    : "services/upload.php",
                     data   : dataString,
                     cache  : false,
                     success: function (result) {
